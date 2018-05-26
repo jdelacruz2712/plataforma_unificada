@@ -302,9 +302,9 @@
 
 <script>
     export default {
-        name: "solicitudes",
-        data () {
-          return {
+      name: "subastas",
+      data () {
+        return {
             tarjetacredito: false,
             prestamos: false,
             cts: false,
@@ -323,39 +323,39 @@
               ],
               data: [
                 {
-                  id:1,
+                  id: 1,
                   fecha: '02-03-2018',
                   tipo: 'Tarjeta de Crédito',
                   estado: 'Esperando',
-                  monto : 0
+                  monto: 0
                 },
                 {
-                  id:2,
+                  id: 2,
                   fecha: '05-05-2018',
                   tipo: 'Préstamo Efectivo',
                   estado: 'Nueva Propuesta',
-                  monto : 5000
+                  monto: 5000
                 },
                 {
-                  id:3,
+                  id: 3,
                   fecha: '12-05-2018',
                   tipo: 'Préstamo',
                   estado: 'Cancelada',
-                  monto : 3500
+                  monto: 3500
                 },
                 {
-                  id:4,
+                  id: 4,
                   fecha: '02-03-2018',
                   tipo: 'Tarjeta de Crédito',
                   estado: 'Nueva Propuesta',
-                  monto : 0
+                  monto: 0
                 },
                 {
-                  id:5,
+                  id: 5,
                   fecha: '05-05-2018',
                   tipo: 'Préstamo',
                   estado: 'Nueva Propuesta',
-                  monto : 3000
+                  monto: 3000
                 }
               ]
             },

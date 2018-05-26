@@ -39,14 +39,14 @@
 export default {
   data: () => ({
     cards: [
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion1.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion3.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion4.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion5.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion6.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion7.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion8.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion2.jpg?alt=media', flex: 3 }
+      { title: '1', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion1.jpg?alt=media', flex: 3 },
+      { title: '2', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion3.jpg?alt=media', flex: 3 },
+      { title: '3', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion4.jpg?alt=media', flex: 3 },
+      { title: '4', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion5.jpg?alt=media', flex: 3 },
+      { title: '5', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion6.jpg?alt=media', flex: 3 },
+      { title: '6', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion7.jpg?alt=media', flex: 3 },
+      { title: '7', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion8.jpg?alt=media', flex: 3 },
+      { title: '8', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion2.jpg?alt=media', flex: 3 }
     ]
   })
 }
