@@ -121,7 +121,8 @@ export default {
           { text: 'Numero Cuenta', value: 'nrocuenta', sortable: false , align: 'center',},
           { text: 'Producto', value: 'producto', sortable: false, align: 'center', },
           { text: 'Tasa', value: 'tasa', sortable: false, align: 'center', },
-          { text: 'Saldo', value: 'saldo', sortable: false, align: 'center', }
+          { text: 'Saldo', value: 'saldo', sortable: false, align: 'center', },
+          { text: 'Option', sortable: false, align: 'center', }
         ],
         desserts_bcp: [
           {
