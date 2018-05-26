@@ -1,17 +1,15 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs12 md4>
+      <v-flex xs12 md12>
         <v-breadcrumbs>
           <v-icon slot="divider">forward</v-icon>
-          <v-breadcrumbs-item
-            :disabled="true"
-          >
+          <v-breadcrumbs-item>
             {{ name}}
           </v-breadcrumbs-item>
         </v-breadcrumbs>
       </v-flex>
-      <v-flex xs12 md4>
+      <v-flex xs12 md12>
         <v-data-table
           :headers="headers"
           :items="desserts"
@@ -37,7 +35,7 @@
         name: "solicitudes",
         data () {
           return {
-            name: "solicitudes",
+            name: "Solicitudes",
             headers: [
               {
                 text: 'Dessert (100g serving)',
