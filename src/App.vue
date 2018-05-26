@@ -13,7 +13,7 @@
         <v-list-tile
           value="true"
           v-for="(item, i) in items"
-          :key="i" :to="items[i].to"
+          :key="i"
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -78,25 +78,12 @@ export default {
       fixed: false,
       items: [{
         icon: 'bubble_chart',
-        title: 'Saldos y Movimientos',
-        to: '/saldos_movimientos'
-      }, {
-        icon: 'bubble_chart',
-        title: 'Solicitudes',
-        to: '/solicitudes'
-      }, {
-        icon: 'bubble_chart',
-        title: 'Promociones',
-        to: '/promociones'
-      }, {
-        icon: 'bubble_chart',
-        title: 'Dashboard',
-        to: '/dashboard'
+        title: 'Inspire'
       }],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Plataforma Financiera Unificada'
+      title: 'Vuetify.js'
     }
   },
   name: 'App'
