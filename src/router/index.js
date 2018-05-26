@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import saldosMovimientos from '@/components/saldos_movimientos'
 import subastas from '@/components/subastas'
-import HelloWorld from '@/components/HelloWorld'
 import promociones from '@/components/promociones'
 import dashboard from '@/components/dashboard'
 
@@ -14,11 +13,6 @@ export default new Router({
       path: '/saldos_movimientos',
       name: 'saldos_movimientos',
       component: saldosMovimientos
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: HelloWorld
     },
     {
       path: '/subastas',
