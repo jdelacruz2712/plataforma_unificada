@@ -6,7 +6,7 @@
         <v-layout row="" wrap="">
           <v-flex v-for="card in cards" v-bind="{ [`sm${card.flex}`]: true }" :key="card.title">
             <v-card>
-              <v-card-media :src="card.src" height="200px">
+              <v-card-media src="@/assets/logo.png" height="200px">
                 <v-container fill-height="" fluid="">
                   <v-layout fill-height="">
                     <v-flex xs12="" align-end="" flexbox=""><span v-text="card.title" class="title white--text"></span></v-flex>
@@ -39,22 +39,15 @@
 export default {
   data: () => ({
     cards: [
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion1.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion3.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion4.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion5.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion6.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion7.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion8.jpg?alt=media', flex: 3 },
-      { title: '', src: 'https://firebasestorage.googleapis.com/v0/b/hackatrix2018-1.appspot.com/o/img%2Fpromocion2.jpg?alt=media', flex: 3 }
+      { title: 'Best airlines', src: '"@/assets/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines2', src: '/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines3', src: '/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines4', src: '/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines5', src: '/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines6', src: '/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines7', src: '/categories/5.jpg', flex: 3 },
+      { title: 'Best airlines8', src: '/categories/5.jpg', flex: 3 }
     ]
   })
 }
 </script>
-
-
-
-
-
-
-

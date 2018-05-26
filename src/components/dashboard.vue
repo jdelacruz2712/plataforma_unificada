@@ -10,8 +10,4 @@
     export default {
         name: "dashboard"
     }
-</script>
-
-<style scoped>
-
-</style>
+</script>s
