@@ -73,7 +73,7 @@
 export default {
   data () {
     return {
-      clipped: false,
+      clipped: true,
       drawer: true,
       fixed: false,
       items: [{
