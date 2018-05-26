@@ -35,24 +35,61 @@
             <td v-html="props.item.id"></td>
             <td v-html="props.item.fecha"></td>
             <td v-html="props.item.tipo"></td>
-            <td v-html="props.item.estado"></td>
             <td>
               <template v-if="props.item.estado === 'Esperando'">
-                <v-btn color="red" dark @click.native.stop="cancelar = true"> Cancelar Subasta
-                  <v-icon dark right>close</v-icon>
+                <span class="info--text">Esperando</span>
+              </template>
+              <template v-else-if="props.item.estado === 'Nueva Propuesta'">
+                <span class="green--text">Nueva Propuesta</span>
+              </template>
+              <template v-else>
+                <span class="red--text">Cancelada</span>
+              </template>
+            </td>
+            <td>
+              <template v-if="props.item.estado === 'Esperando'">
+                <template v-if="props.item.tipo === 'Préstamo'">
+                  <v-btn color="info" dark @click.native.stop="verprestamo = true" disabled>
+                    <v-icon dark center>visibility</v-icon>
+                  </v-btn>
+                </template>
+                <template v-else>
+                  <v-btn color="info" dark @click.native.stop="vertc = true" disabled>
+                    <v-icon dark center>visibility</v-icon>
+                  </v-btn>
+                </template>
+                <v-btn color="red" dark @click.native.stop="cancelar = true">
+                  <v-icon dark center>close</v-icon>
                 </v-btn>
               </template>
               <template v-else-if="props.item.estado === 'Cancelada'">
-                <v-btn color="info" dark @click.native.stop="vermovimiento = true"> Ver Ofertas
-                  <v-icon dark right>visibility</v-icon>
+                <template v-if="props.item.tipo === 'Préstamo'">
+                  <v-btn color="info" dark @click.native.stop="verprestamo = true">
+                    <v-icon dark center>visibility</v-icon>
+                  </v-btn>
+                </template>
+                <template v-else>
+                  <v-btn color="info" dark @click.native.stop="vertc = true">
+                    <v-icon dark center>visibility</v-icon>
+                  </v-btn>
+                </template>
+                <v-btn color="red" dark @click.native.stop="cancelar = true" disabled>
+                  <v-icon dark center>close</v-icon>
                 </v-btn>
               </template>
               <template v-else>
-                <v-btn color="info" dark @click.native.stop="vermovimiento = true"> Ver Ofertas
-                  <v-icon dark right>visibility</v-icon>
-                </v-btn>
-                <v-btn color="red" dark @click.native.stop="cancelar = true"> Cancelar Subasta
-                  <v-icon dark right>close</v-icon>
+                <template v-if="props.item.tipo === 'Préstamo'">
+                  <v-btn color="info" dark @click.native.stop="verprestamo = true">
+                    <v-icon dark center>visibility</v-icon>
+                  </v-btn>
+                </template>
+                <template v-else>
+                  <v-btn color="info" dark @click.native.stop="vertc = true">
+                    <v-icon dark center>visibility</v-icon>
+                  </v-btn>
+                </template>
+                <v-btn color="red" dark @click.native.stop="cancelar = true">
+                  <v-icon dark center>close</v-icon>
                 </v-btn>
               </template>
             </td>
@@ -138,10 +175,69 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-dialog v-model="vermovimiento" persistent max-width="980px">
+        <v-dialog v-model="vertc" persistent max-width="820px">
           <v-card>
-            <v-card-title class="headline">Solicitar Tarjeta de Credito</v-card-title>
+            <v-card-title class="headline">Seleccione la mejor oferta</v-card-title>
             <v-card-text>
+              <v-data-table
+                :headers="tableDataSolicitudes.headers"
+                :items="tableDataSolicitudes.data"
+                hide-actions
+                class="elevation-1"
+              >
+                <template slot="items" slot-scope="props">
+                  <td v-html="props.item.banco"></td>
+                  <td v-html="props.item.monto"></td>
+                  <td>
+                    <template v-if="props.item.estado === 'Aprobado'">
+                      <span class="green--text">Aprobado</span>
+                    </template>
+                    <template v-else-if="props.item.estado === 'Pre-Aprobado'">
+                      <span class="info--text">Pre-Aprobado</span>
+                    </template>
+                    <template v-else>
+                      <span class="red--text">Negado</span>
+                    </template>
+                  </td>
+                  <td v-html="props.item.vigencia"></td>
+                  <td>
+                    <template v-if="props.item.estado === 'Aprobado'">
+                      <v-btn color="green" dark @click.native.stop="confirmarbanco = true">
+                        <v-icon dark center>check</v-icon>
+                      </v-btn>
+                    </template>
+                    <template v-else-if="props.item.estado === 'Pre-Aprobado'">
+                      <v-btn color="info" dark> Acercarse al banco
+                        <v-icon dark right>av_timer</v-icon>
+                      </v-btn>
+                    </template>
+                    <template v-else>
+                      <v-btn color="red" dark> Subasta Negada
+                        <v-icon dark right>close</v-icon>
+                      </v-btn>
+                    </template>
+                  </td>
+                </template>
+              </v-data-table>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green" @click.native="vertc = false" dark>Si
+                <v-icon dark right>check</v-icon>
+              </v-btn>
+              <v-btn color="red" @click.native="vertc = false" dark>No
+                <v-icon dark right>close</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <v-dialog v-model="verprestamo" persistent max-width="820px">
+          <v-card>
+            <v-card-title class="headline">Seleccione la mejor oferta</v-card-title>
+            <v-card-text>
+              <div class="text-xs-right">
+                Monto : 3500, Plazo : 12 Meses
+              </div>
               <v-data-table
                 :headers="tableDataSolicitudes.headers"
                 :items="tableDataSolicitudes.data"
@@ -155,17 +251,17 @@
                   <td v-html="props.item.vigencia"></td>
                   <td>
                     <template v-if="props.item.estado === 'Aprobado'">
-                      <v-btn color="green" dark @click.native.stop="vermovimiento = false">
+                      <v-btn color="green" dark @click.native.stop="confirmarbanco = true">
                         <v-icon dark center>check</v-icon>
                       </v-btn>
                     </template>
                     <template v-else-if="props.item.estado === 'Pre-Aprobado'">
-                      <v-btn color="info" dark @click.native.stop="vermovimiento = false"> Acercarse al banco
+                      <v-btn color="info" dark> Acercarse al banco
                         <v-icon dark right>av_timer</v-icon>
                       </v-btn>
                     </template>
                     <template v-else>
-                      <v-btn color="red" dark @click.native.stop="vermovimiento = false"> Subasta Negada
+                      <v-btn color="red" dark> Subasta Negada
                         <v-icon dark right>close</v-icon>
                       </v-btn>
                     </template>
@@ -175,10 +271,25 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="green" @click.native="vermovimiento = false" dark>Si
+              <v-btn color="green" @click.native="verprestamo = false" dark>Si
                 <v-icon dark right>check</v-icon>
               </v-btn>
-              <v-btn color="red" @click.native="vermovimiento = false" dark>No
+              <v-btn color="red" @click.native="verprestamo = false" dark>No
+                <v-icon dark right>close</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+        <v-dialog v-model="confirmarbanco" persistent max-width="323px">
+          <v-card>
+            <v-card-title class="headline">Confirmar banco</v-card-title>
+            <v-card-text>¿Deseas aceptar la oferta de esta banco?</v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green" @click.native="confirmarbanco = false; verprestamo = false; vertc = false" dark>Si
+                <v-icon dark right>check</v-icon>
+              </v-btn>
+              <v-btn color="red" @click.native="confirmarbanco = false" dark>No
                 <v-icon dark right>close</v-icon>
               </v-btn>
             </v-card-actions>
@@ -197,7 +308,9 @@
             tarjetacredito: false,
             prestamos: false,
             cts: false,
-            vermovimiento: false,
+            vertc: false,
+            verprestamo: false,
+            confirmarbanco: false,
             cancelar: false,
             name: "Subastas",
             tableSolicitudes: {
