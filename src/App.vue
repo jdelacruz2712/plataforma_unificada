@@ -69,8 +69,8 @@ export default {
         to: '/saldos_movimientos'
       }, {
         icon: 'bubble_chart',
-        title: 'Solicitudes',
-        to: '/solicitudes'
+        title: 'Subastas',
+        to: '/subastas'
       }, {
         icon: 'bubble_chart',
         title: 'Promociones',
