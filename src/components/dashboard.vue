@@ -22,7 +22,7 @@
             <v-layout row wrap>
               <v-flex xs12>
                 <v-card color="white" class="white--text">
-                  <ahorro-chart></ahorro-chart>
+                  <chart-ahorro></chart-ahorro>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -42,7 +42,7 @@
             <v-layout row wrap>
               <v-flex xs12>
                 <v-card color="white" class="white--text">
-                  <cts-chart></cts-chart>
+                  <chart-cts></chart-cts>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -62,7 +62,7 @@
             <v-layout row wrap>
               <v-flex xs12>
                 <v-card color="white" class="white--text">
-                  <prestamos-chart></prestamos-chart>
+                  <chart-prestamos></chart-prestamos>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -75,9 +75,10 @@
 
 <script>
   import Vue from 'vue'
+  import 'chart.piecelabel.js'
   import VueChartJs from 'vue-chartjs'
 
-  Vue.component('ahorro-chart', {
+  Vue.component('chart-ahorro', {
     extends: VueChartJs.Pie,
     data: function () {
       return {
@@ -107,7 +108,15 @@
           maintainAspectRatio: false,
           pieceLabel: {
             mode: 'percentage',
-            precision: 1
+            precision: 1,
+            fontColor: '#fff',
+            overlap: true,
+            showActualPercentages: true,
+            shadowBlur: 10,
+            textShadow: true,
+            showZero: true,
+            fontStyle: 'bold',
+            shadowColor: 'rgba(255,0,0,0.75)'
           }
         }
       }
@@ -121,7 +130,7 @@
     }
   })
 
-  Vue.component('cts-chart', {
+  Vue.component('chart-cts', {
     extends: VueChartJs.Pie,
     data: function () {
       return {
@@ -151,7 +160,15 @@
           maintainAspectRatio: false,
           pieceLabel: {
             mode: 'percentage',
-            precision: 1
+            precision: 1,
+            fontColor: '#fff',
+            overlap: true,
+            showActualPercentages: true,
+            shadowBlur: 10,
+            textShadow: true,
+            showZero: true,
+            fontStyle: 'bold',
+            shadowColor: 'rgba(255,0,0,0.75)'
           }
         }
       }
@@ -165,7 +182,7 @@
     }
   })
 
-  Vue.component('prestamos-chart', {
+  Vue.component('chart-prestamos', {
     extends: VueChartJs.HorizontalBar,
     data: function () {
       return {
